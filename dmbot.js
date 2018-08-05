@@ -9,6 +9,8 @@ client.on("ready", () => {
   console.log("I am ready!");
 });
 
+
+
 client.on("message", (message) => {
 
   if (message.author.bot) return; // Ignore bots.
@@ -19,17 +21,39 @@ client.on("message", (message) => {
   const args = message.content.slice(config.prefix.length, message.content.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-//Table command
+//Poll Command
+  if (command === "poll"){
+    let question = args.slice(0).join(" ");
+    if (args.length === 0){
+      return message.reply('**Invalid Format:** `'+config.prefex+'Poll <Question>`')
+    }
+    const embed = new Discord.RichEmbed()
+      .setTitle("A Poll Has Been Started!")
+      .setColor("#5599ff")
+      .setDescription(`${question}`)
+      .setFooter(`Poll Started By: ${message.author.username}`, `${message.author.avatarURL}`)
+
+    message.channel.send({embed})
+    message.react('👍')
+    .then(() => message.react('👎'))
+    .then(() => message.react('🤷'))
+    .catch(() => console.error('Emoji failed to react.'));
+
+  }
+
+
+/*/Table command
   if (command === "table"){
     if(args [0] === "help"){
       message.channel.send("The table function takes in a new JSON object representing a table for the DM to be able to randomize, see <URL> for JSON structure");
     } else {
-      if (!message.attachments){
+      if (Object.keys(message.attachments).length == 0){
         message.channel.send("Please attach a JSON object representing your table see <URL> for structure");
         return;
       }
     }
   };
+  */
 //Roll Command, Needs refactoring into a Roll function that can be called on other commands, but want to keep its results creation
   if (command === "roll"){
     if (args[0] === "help"){
