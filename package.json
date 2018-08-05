@@ -1,0 +1,25 @@
+{
+  "name": "discorddmbot",
+  "version": "1.0.0",
+  "description": "DM bot for Dungeons and Dragons",
+  "main": "dmbot.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hackthulhu/DiscordDMBot.git"
+  },
+  "keywords": [
+    "Dungeons&Dragons",
+    "Discord"
+  ],
+  "author": "Galen Evans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hackthulhu/DiscordDMBot/issues"
+  },
+  "homepage": "https://github.com/Hackthulhu/DiscordDMBot#readme"
+}
