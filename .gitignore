@@ -1,0 +1,4 @@
+node_modules
+config.json
+score.sqlite
+.eslintrc.json
